@@ -19,9 +19,16 @@ export class RegisterForm extends React.Component {
   handleChangeCpf = cpf => this.setState({ cpf });
   handleChangePhone = phone => this.setState({ phone });
 
+  handleSubmitForm = () => {
+    const { name, city, email, cpf, phone } = this.state;
+    if (!name || !city || !email || !cpf || !phone) {
+      alert("por favor, preencha todos os campos");
+    }
+  };
+
   render() {
     return (
-      <form>
+      <form onSubmit={() => this.handleSubmitForm()}>
         <FormInput
           label="nome completo"
           value={this.state.name}
@@ -51,6 +58,7 @@ export class RegisterForm extends React.Component {
           value={this.state.phone}
           handleChange={this.handleChangePhone}
         />
+        <button>Increver</button>
       </form>
     );
   }
