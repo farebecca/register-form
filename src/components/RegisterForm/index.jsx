@@ -12,10 +12,18 @@ export class RegisterForm extends React.Component {
       phone: ""
     };
   }
+
+  handleChangeName = name => this.setState({ name });
+
   render() {
     return (
       <form>
-        <FormInput label="nome completo" value={this.state.name} />
+        <FormInput
+          label="nome completo"
+          value={this.state.name}
+          handleChange={this.handleChangeName}
+        />
+        {console.log(this.state.name)}
         <FormInput label="cidade" value={this.state.city} />
         <FormInput
           inputType="email"
