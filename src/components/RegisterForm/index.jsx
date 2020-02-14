@@ -4,7 +4,6 @@ import { FormInput } from "../FormInput";
 export class RegisterForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log("render");
     this.state = {
       name: "",
       city: "",
@@ -16,8 +15,13 @@ export class RegisterForm extends React.Component {
 
   handleChange = (name, value) => this.setState({ [name]: value });
 
+  validateEmail = email => email.includes("@") && email.includes(".");
+
   handleSubmitForm = () => {
     const { name, city, email, cpf, phone } = this.state;
+    if (!this.validateEmail(email)) {
+      return alert("Por favor insira um e-mail válido.");
+    }
     if (!name || !city || !email || !cpf || !phone) {
       return alert("por favor, preencha todos os campos");
     }
