@@ -17,7 +17,8 @@ export class RegisterForm extends React.Component {
 
   validateEmail = email => email.includes("@") && email.includes(".");
 
-  handleSubmitForm = () => {
+  handleSubmitForm = event => {
+    event.preventDefault();
     const { name, city, email, cpf, phone } = this.state;
     if (!this.validateEmail(email)) {
       return alert("Por favor insira um e-mail válido.");
