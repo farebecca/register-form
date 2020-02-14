@@ -14,6 +14,10 @@ export class RegisterForm extends React.Component {
   }
 
   handleChangeName = name => this.setState({ name });
+  handleChangeCity = city => this.setState({ city });
+  handleChangeEmail = email => this.setState({ email });
+  handleChangeCpf = cpf => this.setState({ cpf });
+  handleChangePhone = phone => this.setState({ phone });
 
   render() {
     return (
@@ -23,23 +27,29 @@ export class RegisterForm extends React.Component {
           value={this.state.name}
           handleChange={this.handleChangeName}
         />
-        {console.log(this.state.name)}
-        <FormInput label="cidade" value={this.state.city} />
+        <FormInput
+          label="cidade"
+          value={this.state.city}
+          handleChange={this.handleChangeCity}
+        />
         <FormInput
           inputType="email"
           label="email"
           placeholder="email@email.com"
           value={this.state.email}
+          handleChange={this.handleChangeEmail}
         />
         <FormInput
           label="cpf"
           placeholder="000.000.000-00"
           value={this.state.cpf}
+          handleChange={this.handleChangeCpf}
         />
         <FormInput
           label="telefone"
           placeholder="(xx) xxxxx-xxxx"
           value={this.state.phone}
+          handleChange={this.handleChangePhone}
         />
       </form>
     );
